@@ -1,8 +1,12 @@
 import React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, Image, Alert, Modal } from 'react-native';
 import ButtonShort from '../UI/button-short';
+import { useNavigation } from '@react-navigation/native';
+import { useProgress } from '../context/ProgressContext';
 
 export default function WelcomeScreen() {
+  const navigation = useNavigation();
+  const { setProgress, reset } = useProgress();
   const [showDisclaimer, setShowDisclaimer] = React.useState(true);
   return (
     <SafeAreaView style={styles.container}>
@@ -55,7 +59,11 @@ export default function WelcomeScreen() {
 
         <ButtonShort
           title="GET STARTED"
-          onPress={() => Alert.alert('Get Started', 'Navigation coming next')}
+          onPress={() => {
+            reset();
+            setProgress(0.1);
+            navigation.navigate('LanguageSelect');
+          }}
           style={{ marginTop: 24 }}
         />
 

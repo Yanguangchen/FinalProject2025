@@ -6,6 +6,9 @@ This repository contains a Snack-compatible Expo managed app scaffold with Metro
 - Install Node 18+ and npm or yarn
 - Install dependencies:
   - `npm install` or `yarn`
+- Install navigation + UI deps (if not already installed):
+  - `npx expo install @react-navigation/native @react-navigation/native-stack react-native-screens react-native-safe-area-context`
+  - `npx expo install @expo/vector-icons expo-linear-gradient`
 - Start Metro:
   - `npm run start` (uses npx expo; opens Expo Dev Tools)
   - Press `i` for iOS Simulator, `a` for Android, or `w` for web
@@ -37,4 +40,30 @@ mkdir -p .npm-cache
 NPM_CONFIG_CACHE=$PWD/.npm-cache npm install
 NPM_CONFIG_CACHE=$PWD/.npm-cache npx expo@latest start --clear
 ```
+
+### Project structure (key paths)
+```
+assets/                # images (e.g., Splash.png)
+context/ProgressContext.js
+screens/WelcomeScreen.js
+screens/LanguageSelect.js
+screens/HomeScreen.js
+UI/button-short.js     # primary CTA
+UI/button-long.js      # full-width CTA (Preparation)
+UI/progress-bar.js     # gradient progress (primary #0D00CA, accent #0022FF)
+UI/select-long.js      # long list option with neumorphic shadow, outline #4B4B4B
+UI/arrow-back.js       # back button icon
+UI/status-card.js      # alert/neutral information tiles
+UI/signal-indicator.js # signal/ping tile
+```
+
+### Progress state
+- `ProgressContext` provides `progress`, `setProgress`, `advance(delta)`, `retreat(delta)`, `reset()`.
+- `WelcomeScreen` sets initial progress to 0.1 and navigates to LanguageSelect.
+- `LanguageSelect` shows the progress, back reduces progress by 0.1.
+
+### Buttons sizing
+- Long button width: `92%`.
+- Short button width: `43%` (3% shorter than half of the long button).
+- When two short buttons are shown in a row, the row container uses `width: '92%'` so the pair (button + gap + button) never exceeds the long button width.
 

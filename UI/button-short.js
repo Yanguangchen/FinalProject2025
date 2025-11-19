@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     elevation: 2,
     alignSelf: 'center',
+    width: '43%',
   },
   ctaButtonPressed: { opacity: 0.9, transform: [{ scale: 0.99 }] },
   ctaText: { color: '#fff', fontWeight: '800', letterSpacing: 1, fontSize: 16, fontFamily: 'Acme_400Regular' },
