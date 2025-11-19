@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "Rally",
+    "slug": "rally",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "sdkVersion": "52.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "plugins": [
+      "expo-asset"
+    ]
+  }
+}
