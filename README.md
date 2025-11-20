@@ -48,6 +48,9 @@ context/ProgressContext.js
 screens/WelcomeScreen.js
 screens/LanguageSelect.js
 screens/HomeScreen.js
+screens/PreparationScreen.js
+screens/ShelterMapScreen.js
+screens/ElevationMapScreen.js
 UI/button-short.js     # primary CTA
 UI/button-long.js      # full-width CTA (Preparation)
 UI/progress-bar.js     # gradient progress (primary #0D00CA, accent #0022FF)
@@ -66,4 +69,22 @@ UI/signal-indicator.js # signal/ping tile
 - Long button width: `92%`.
 - Short button width: `43%` (3% shorter than half of the long button).
 - When two short buttons are shown in a row, the row container uses `width: '92%'` so the pair (button + gap + button) never exceeds the long button width.
+- `PreparationScreen` renders multiple `button-long` items inside a centered parent container for consistent alignment.
+
+### Button 3D interaction model
+- Raised state: 4px offset shadow, elevation 4, no blur.
+- Active state: remove shadow and translateY(4) to simulate depress.
+- Shadow tinting:
+  - Short/Long buttons: darker green tint `#228A00` (shadowOpacity 0.35).
+  - Select-long: neutral `#7A7A7A` when unselected, darker blue `#0017B3` when selected (shadowOpacity 0.3).
+
+### Maps placeholders
+- `ShelterMapScreen` and `ElevationMapScreen` use a Google Maps `iframe` on web for quick preview.
+- On mobile (Expo Go), a native placeholder view is rendered until the maps SDK/API is integrated.
+
+### Connectivity and ping
+- Network provider (`context/NetworkContext.js`) uses NetInfo and pings `https://www.gstatic.com/generate_204` every 15s.
+- `UI/signal-indicator.js` consumes context and shows live strength and ping.
+- `UI/connection-banner.js` displays a red banner when offline.
+- Install (if missing): `npx expo install @react-native-community/netinfo expo-font @expo-google-fonts/acme`
 

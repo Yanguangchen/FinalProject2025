@@ -14,7 +14,11 @@ export default function ButtonLong({ title, onPress, style, textStyle }) {
     <Pressable
       accessibilityRole="button"
       onPress={onPress}
-      style={({ pressed }) => [styles.button, pressed && styles.pressed, style]}
+      style={({ pressed }) => [
+        styles.button,
+        pressed ? styles.buttonActive : styles.buttonRaised,
+        style,
+      ]}
     >
       <Text style={[styles.text, textStyle]}>{title}</Text>
     </Pressable>
@@ -27,17 +31,24 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingHorizontal: 20,
     borderRadius: 16,
-    shadowColor: '#000',
-    shadowOpacity: 0.15,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 6 },
-    elevation: 3,
     alignSelf: 'center',
     width: '92%', // roughly 2.3x of a 40% short button
     alignItems: 'center',
     justifyContent: 'center',
   },
-  pressed: { opacity: 0.95, transform: [{ scale: 0.995 }] },
+  buttonRaised: {
+    // lighter shade of primary green for the drop shadow
+    shadowColor: '#228A00',
+    shadowOpacity: 0.35,
+    shadowRadius: 0,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 4,
+  },
+  buttonActive: {
+    shadowOpacity: 0,
+    elevation: 0,
+    transform: [{ translateY: 4 }],
+  },
   text: { color: '#fff', fontWeight: '800', fontSize: 18, letterSpacing: 0.5, fontFamily: 'Acme_400Regular' },
 });
 

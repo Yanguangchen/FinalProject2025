@@ -1,17 +1,21 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { useNetwork } from '../context/NetworkContext';
 
 /**
  * SignalIndicator
  * Props:
- * - strength: 'Strong' | 'Moderate' | 'Weak'
- * - pingMs: number
+ * - strength?: 'Strong' | 'Moderate' | 'Weak'
+ * - pingMs?: number
  */
 export default function SignalIndicator({ strength = 'Strong', pingMs = 40 }) {
+  const net = useNetwork();
+  const finalStrength = net?.strength ?? strength;
+  const finalPing = net?.pingMs ?? pingMs;
   return (
     <View style={styles.card}>
-      <Text style={styles.title}>Signal: <Text style={styles.accent}>{strength}</Text></Text>
-      <Text style={styles.subtitle}>ping: {pingMs}ms</Text>
+      <Text style={styles.title}>Signal: <Text style={styles.accent}>{finalStrength}</Text></Text>
+      <Text style={styles.subtitle}>ping: {finalPing != null ? `${finalPing}ms` : 'n/a'}</Text>
     </View>
   );
 }

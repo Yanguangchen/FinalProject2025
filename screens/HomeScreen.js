@@ -29,7 +29,7 @@ export default function HomeScreen() {
           <ButtonShort title="Shelter Map" onPress={() => navigation.navigate('ShelterMap')} style={{ width: '43%' }} />
         </View>
         <View style={{ height: 24 }} />
-        <ButtonLong title="Preparation" onPress={() => {}} />
+        <ButtonLong title="Preparation" onPress={() => navigation.navigate('Preparation')} />
         <View style={{ height: 16 }} />
         <SignalIndicator strength="Strong" pingMs={40} />
         <View style={{ height: 24 }} />

@@ -7,9 +7,12 @@ import LanguageSelect from './screens/LanguageSelect';
 import HomeScreen from './screens/HomeScreen';
 import ShelterMapScreen from './screens/ShelterMapScreen';
 import ElevationMapScreen from './screens/ElevationMapScreen';
+import PreparationScreen from './screens/PreparationScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ProgressProvider } from './context/ProgressContext';
+import { NetworkProvider } from './context/NetworkContext';
+import ConnectionBanner from './UI/connection-banner';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,21 +23,25 @@ export default function App() {
   }
 
   return (
-    <ProgressProvider>
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{ headerShown: false, animation: 'slide_from_right' }}
-          initialRouteName="Welcome"
-        >
-          <Stack.Screen name="Welcome" component={WelcomeScreen} />
-          <Stack.Screen name="LanguageSelect" component={LanguageSelect} />
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="ShelterMap" component={ShelterMapScreen} />
-          <Stack.Screen name="ElevationMap" component={ElevationMapScreen} />
-        </Stack.Navigator>
-        <StatusBar style="auto" />
-      </NavigationContainer>
-    </ProgressProvider>
+    <NetworkProvider>
+      <ProgressProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{ headerShown: false, animation: 'slide_from_right' }}
+            initialRouteName="Welcome"
+          >
+            <Stack.Screen name="Welcome" component={WelcomeScreen} />
+            <Stack.Screen name="LanguageSelect" component={LanguageSelect} />
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="ShelterMap" component={ShelterMapScreen} />
+            <Stack.Screen name="ElevationMap" component={ElevationMapScreen} />
+            <Stack.Screen name="Preparation" component={PreparationScreen} />
+          </Stack.Navigator>
+          <StatusBar style="auto" />
+        </NavigationContainer>
+        <ConnectionBanner />
+      </ProgressProvider>
+    </NetworkProvider>
   );
 }
 

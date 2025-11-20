@@ -19,6 +19,9 @@ This document summarizes the initial technical setup completed for the Rally mob
   - `screens/WelcomeScreen.js` (first view with disclaimer modal)
   - `screens/LanguageSelect.js` (language list UI with progress/header)
   - `screens/HomeScreen.js` (dashboard with status, maps, preparation)
+  - `screens/PreparationScreen.js` (list of preparedness categories using button-long, centered)
+  - `screens/ShelterMapScreen.js` (web: Google Maps iframe placeholder; mobile: native placeholder)
+  - `screens/ElevationMapScreen.js` (web: Google Maps iframe placeholder; mobile: native placeholder)
   - `context/ProgressContext.js` (global progress state via Context)
 - Welcome screen implemented with:
   - Mascot image from `assets/Splash.png` (bundled require)
@@ -31,12 +34,37 @@ This document summarizes the initial technical setup completed for the Rally mob
 - React Navigation stack added; `App.js` registers `Welcome` and `LanguageSelect`.
 - `ProgressContext` provides `progress`, `setProgress`, `advance`, `retreat`, `reset`.
 - `LanguageSelect` reads progress from context; back arrow calls `retreat(0.1)`; proceed calls `advance(0.1)` (placeholder for next route).
-- Flow: Welcome → LanguageSelect → Home.
+- Flow: Welcome → LanguageSelect → Home → ShelterMap / ElevationMap.
 
 ## Buttons sizing
 - Long button (`button-long`) width is `92%`.
 - Short button (`button-short`) width is `43%` (which is 3% less than half of the long button).
 - Two short buttons are placed in a row container of `92%` width to ensure the pair never exceeds the long button width (leaves ~6% gap).
+ - Lists of `button-long` (e.g., Preparation) are rendered in a centered parent container for consistent alignment.
+
+## Button 3D interaction model
+- All tappable buttons use a raised/depressed visual:
+  - Raised: shadow offset 4px, elevation 4, no blur (flat drop).
+  - Active: shadow removed, translateY(4) to simulate depress.
+- Shadow color tints:
+  - `button-short` and `button-long`: lighter green `#8BE58A` (opacity 0.25).
+  - `select-long` (unselected): neutral `#BEBEBE` (opacity via style 0.2).
+  - `select-long` (selected): lighter blue `#88B3FF`.
+
+## Maps placeholders
+- For web preview, both map screens use a Google Maps `iframe` as a temporary placeholder.
+- For mobile (Expo Go), a simple native placeholder view is shown until the maps SDK/API is integrated.
+
+## Connectivity and real-time status
+- `context/NetworkContext.js` monitors connectivity via `@react-native-community/netinfo` and measures ping to `https://www.gstatic.com/generate_204` every 15s.
+- `UI/signal-indicator.js` displays live `Signal: <Strong|Moderate|Weak>` and `ping: <ms>` using the context.
+- `UI/connection-banner.js` shows a top red banner when offline: “Signal Lost: No real time alerts”.
+- Integrated in `App.js` via `<NetworkProvider>` and `<ConnectionBanner />`.
+
+### Install required packages
+```bash
+npx expo install @react-native-community/netinfo expo-font @expo-google-fonts/acme
+```
 
 ## How to run locally
 1. Install dependencies:
