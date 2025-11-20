@@ -25,7 +25,7 @@ export default function HomeScreen() {
         <Text style={styles.sectionTitle}>DASHBOARD</Text>
         <StatusCard title="Martial Law Enacted" subtitle="15/11/2025    5:33am" />
         <View style={[styles.row, { justifyContent: 'space-between', width: '92%', alignSelf: 'center' }]}>
-          <ButtonShort title="Elevation Map" onPress={() => {}} style={{ width: '43%' }} />
+          <ButtonShort title="Elevation Map" onPress={() => navigation.navigate('ElevationMap')} style={{ width: '43%' }} />
           <ButtonShort title="Shelter Map" onPress={() => navigation.navigate('ShelterMap')} style={{ width: '43%' }} />
         </View>
         <View style={{ height: 24 }} />

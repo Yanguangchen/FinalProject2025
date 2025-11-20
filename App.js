@@ -6,6 +6,7 @@ import WelcomeScreen from './screens/WelcomeScreen';
 import LanguageSelect from './screens/LanguageSelect';
 import HomeScreen from './screens/HomeScreen';
 import ShelterMapScreen from './screens/ShelterMapScreen';
+import ElevationMapScreen from './screens/ElevationMapScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ProgressProvider } from './context/ProgressContext';
@@ -29,6 +30,7 @@ export default function App() {
           <Stack.Screen name="LanguageSelect" component={LanguageSelect} />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="ShelterMap" component={ShelterMapScreen} />
+          <Stack.Screen name="ElevationMap" component={ElevationMapScreen} />
         </Stack.Navigator>
         <StatusBar style="auto" />
       </NavigationContainer>
