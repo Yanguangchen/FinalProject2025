@@ -7,14 +7,91 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function ShelterMapScreen() {
   const navigation = useNavigation();
+
+  const [coords, setCoords] = React.useState({ lat: 1.3521, lng: 103.8198 }); // SG default
+  const [loading, setLoading] = React.useState(false);
+  const mapsApiKey =
+    (typeof process !== 'undefined' && process.env && (process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY || process.env.GOOGLE_MAPS_API_KEY)) || '';
+
+  const locate = React.useCallback(async () => {
+    if (Platform.OS === 'web' && typeof navigator !== 'undefined' && navigator.geolocation) {
+      await new Promise((resolve) => {
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            setCoords({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+            resolve();
+          },
+          () => resolve(),
+          { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+        );
+      });
+    }
+  }, []);
+
+  React.useEffect(() => {
+    locate();
+  }, [locate]);
+
+  const webMapHtml = React.useMemo(() => {
+    const c = coords;
+    const html = `<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>html,body,#map{height:100%;margin:0;padding:0}</style>
+    <script>
+      function initMap(){
+        var center={lat:${c.lat},lng:${c.lng}};
+        var map=new google.maps.Map(document.getElementById('map'),{center:center,zoom:14,mapTypeId:'terrain'});
+        new google.maps.Marker({position:center,map:map,title:'You'});
+        var svc=new google.maps.places.PlacesService(map);
+        var all=[], seen={};
+        function pushResult(r){
+          if(!r||!r.geometry||!r.geometry.location){return;}
+          var id=r.place_id||[r.name,r.vicinity].join('|');
+          if(seen[id]) return; seen[id]=true;
+          all.push(r);
+        }
+        function addMarkers(){
+          if(!all.length){ return; }
+          var b=new google.maps.LatLngBounds(); b.extend(center);
+          all.forEach(function(r){
+            var p=r.geometry.location;
+            var m=new google.maps.Marker({position:p,map:map,title:r.name});
+            var vic=r.vicinity||r.formatted_address||'';
+            var inf=new google.maps.InfoWindow({content:'<strong>'+(r.name||'Shelter')+'</strong><br/>'+vic});
+            m.addListener('click',function(){inf.open(map,m)});
+            b.extend(p);
+          });
+          map.fitBounds(b,40);
+        }
+        // 1) Nearby search with generic keyword to maximize hits
+        var nearbyReq={location:center,radius:10000,keyword:'shelter',type:'point_of_interest'};
+        svc.nearbySearch(nearbyReq,function(res,status){
+          if(status===google.maps.places.PlacesServiceStatus.OK && res){ res.forEach(pushResult); }
+          // 2) Text search fallback focused on SCDF/public shelters
+          var textReq={query:'SCDF shelter OR public shelter', location:center, radius:10000, region:'sg'};
+          svc.textSearch(textReq,function(res2,status2){
+            if(status2===google.maps.places.PlacesServiceStatus.OK && res2){ res2.forEach(pushResult); }
+            addMarkers();
+          });
+        });
+      }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=${mapsApiKey}&libraries=places&callback=initMap&loading=async&language=en&region=SG"></script>
+  </head>
+  <body><div id="map"></div></body>
+</html>`;
+    return html;
+  }, [coords, mapsApiKey]);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.mapArea}>
         {Platform.OS === 'web' ? (
-          // Temporary placeholder using the provided Google Maps iframe (web only)
           <iframe
             title="Shelter Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7269006727456!2d103.94957009999999!3d1.3401915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da3d235406d0cb%3A0xd0d464b7d1c77552!2sChangi%20General%20Hospital!5e0!3m2!1sen!2ssg!4v1763564494282!5m2!1sen!2ssg"
+            srcDoc={webMapHtml}
             style={{ border: 0, width: '100%', height: '100%' }}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -30,7 +107,14 @@ export default function ShelterMapScreen() {
       {/* Overlays */}
       <View style={styles.overlayTop}>
         <ArrowBack onPress={() => navigation.goBack()} />
-        <ButtonShort title="Shelter Locations near me" onPress={() => {}} style={styles.pill} />
+        <ButtonShort title={loading ? 'Locating...' : 'Shelter Locations near me'} onPress={async () => {
+          try {
+            setLoading(true);
+            await locate();
+          } finally {
+            setLoading(false);
+          }
+        }} style={styles.pill} />
       </View>
 
       <View style={styles.overlayBottom}>

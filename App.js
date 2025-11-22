@@ -8,16 +8,33 @@ import HomeScreen from './screens/HomeScreen';
 import ShelterMapScreen from './screens/ShelterMapScreen';
 import ElevationMapScreen from './screens/ElevationMapScreen';
 import PreparationScreen from './screens/PreparationScreen';
+import OfficialUpdates from './screens/OfficialUpdates';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ProgressProvider } from './context/ProgressContext';
 import { NetworkProvider } from './context/NetworkContext';
 import ConnectionBanner from './UI/connection-banner';
+import { Platform } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Acme_400Regular });
+
+  // Persist navigation state on web so refresh doesn't reset to Welcome
+  const PERSISTENCE_KEY = 'NAVIGATION_STATE_V1';
+  const [isNavReady, setIsNavReady] = React.useState(Platform.OS !== 'web');
+  const [initialNavState, setInitialNavState] = React.useState(undefined);
+
+  React.useEffect(() => {
+    if (Platform.OS !== 'web') return;
+    try {
+      const saved = window.sessionStorage.getItem(PERSISTENCE_KEY);
+      if (saved) setInitialNavState(JSON.parse(saved));
+    } catch (_e) {}
+    setIsNavReady(true);
+  }, []);
+
   if (!fontsLoaded) {
     return null;
   }
@@ -25,7 +42,15 @@ export default function App() {
   return (
     <NetworkProvider>
       <ProgressProvider>
-        <NavigationContainer>
+        {isNavReady ? (
+        <NavigationContainer
+          initialState={initialNavState}
+          onStateChange={(state) => {
+            if (Platform.OS === 'web') {
+              try { window.sessionStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state)); } catch (_e) {}
+            }
+          }}
+        >
           <Stack.Navigator
             screenOptions={{ headerShown: false, animation: 'slide_from_right' }}
             initialRouteName="Welcome"
@@ -36,9 +61,11 @@ export default function App() {
             <Stack.Screen name="ShelterMap" component={ShelterMapScreen} />
             <Stack.Screen name="ElevationMap" component={ElevationMapScreen} />
             <Stack.Screen name="Preparation" component={PreparationScreen} />
+            <Stack.Screen name="OfficialUpdates" component={OfficialUpdates} />
           </Stack.Navigator>
           <StatusBar style="auto" />
         </NavigationContainer>
+        ) : null}
         <ConnectionBanner />
       </ProgressProvider>
     </NetworkProvider>

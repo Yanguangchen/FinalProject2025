@@ -25,8 +25,13 @@ export default function PreparationScreen() {
         <View style={{ height: 12 }} />
         <View style={styles.list}>
           {items.map((label) => (
-            <View key={label} style={{ marginVertical: 10 }}>
-              <ButtonLong title={label} onPress={() => {}} />
+            <View key={label} style={{ marginVertical: 10, width: '100%' }}>
+              <ButtonLong
+                title={label}
+                onPress={() => {}}
+                textStyle={styles.buttonTextSmall}
+                style={styles.buttonFullWidth}
+              />
             </View>
           ))}
         </View>
@@ -38,7 +43,7 @@ export default function PreparationScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff' },
-  content: { padding: 16, alignItems: 'center', justifyContent: 'center' },
+  content: { padding: 16, alignItems: 'stretch', justifyContent: 'center' },
   headerRow: { flexDirection: 'row', alignItems: 'center' },
   title: {
     fontSize: 28,
@@ -49,8 +54,15 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   list: {
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'center',
+    width: '100%',
+  },
+  buttonTextSmall: {
+    fontSize: 14,
+  },
+  buttonFullWidth: {
+    width: '100%',
   },
 });
 

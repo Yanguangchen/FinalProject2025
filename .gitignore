@@ -10,4 +10,6 @@ yarn-error.log*
 .env
 .npm-cache
 .npm-cache-project
-
+# ... existing ignores ...
+.env
+.env.local

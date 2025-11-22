@@ -1,5 +1,6 @@
 import React from 'react';
 import NetInfo from '@react-native-community/netinfo';
+import { Platform } from 'react-native';
 
 const PING_URL = 'https://www.gstatic.com/generate_204';
 const PING_TIMEOUT_MS = 5000;
@@ -10,7 +11,13 @@ async function measurePing() {
   const timeoutId = setTimeout(() => controller.abort(), PING_TIMEOUT_MS);
   const startedAt = Date.now();
   try {
-    const resp = await fetch(PING_URL, { method: 'GET', signal: controller.signal, cache: 'no-store' });
+    const resp = await fetch(PING_URL, {
+      method: 'GET',
+      signal: controller.signal,
+      cache: 'no-store',
+      // On web, avoid CORS preflight/errors; we only need RTT, not response body
+      ...(Platform.OS === 'web' ? { mode: 'no-cors' } : {}),
+    });
     if (!resp.ok && resp.status !== 204) {
       // still count the RTT if reachable
     }

@@ -8,8 +8,9 @@ import { View, Text, StyleSheet } from 'react-native';
  * - subtitle?: string
  * - variant?: 'alert' | 'neutral'
  * - compact?: boolean (smaller height/padding)
+ * - children?: ReactNode (optional content area)
  */
-export default function StatusCard({ title, subtitle, variant = 'neutral', compact = false }) {
+export default function StatusCard({ title, subtitle, variant = 'neutral', compact = false, children }) {
   const isAlert = variant === 'alert';
   return (
     <View style={[
@@ -17,8 +18,9 @@ export default function StatusCard({ title, subtitle, variant = 'neutral', compa
       compact ? styles.compact : undefined,
       isAlert ? styles.alert : styles.neutral
     ]}>
-      <Text style={[styles.title, isAlert && styles.titleAlert]}>{title}</Text>
+      {title ? <Text style={[styles.title, isAlert && styles.titleAlert]}>{title}</Text> : null}
       {subtitle ? <Text style={[styles.subtitle, isAlert && styles.subtitleAlert]}>{subtitle}</Text> : null}
+      {children ? <View style={styles.content}>{children}</View> : null}
     </View>
   );
 }
@@ -61,6 +63,9 @@ const styles = StyleSheet.create({
   },
   subtitleAlert: {
     color: '#7a0000',
+  },
+  content: {
+    marginTop: 8,
   },
 });
 
