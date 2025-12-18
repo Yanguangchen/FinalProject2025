@@ -29,6 +29,14 @@ jobs:
           EXPO_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
         run: npm run export:web
 
+      - name: Verify export output (must contain index.html)
+        run: |
+          echo "=== dist listing ==="
+          ls -la dist || true
+          echo "=== dist tree (depth 3) ==="
+          find dist -maxdepth 3 -type f -print || true
+          test -f dist/index.html
+
       - name: Upload web build artifact
         uses: actions/upload-artifact@v4
         with:
