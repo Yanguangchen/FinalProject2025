@@ -39,11 +39,20 @@ export default function App() {
     return null;
   }
 
+  // Base path for GitHub Pages (e.g., /FinalProject2025), injected via EXPO_PUBLIC_BASE_PATH
+  const webBasePath =
+    (typeof process !== 'undefined' && process.env && process.env.EXPO_PUBLIC_BASE_PATH) || '';
+  const linking =
+    Platform.OS === 'web' && typeof window !== 'undefined'
+      ? { prefixes: [window.location.origin + webBasePath] }
+      : undefined;
+
   return (
     <NetworkProvider>
       <ProgressProvider>
         {isNavReady ? (
         <NavigationContainer
+          linking={linking}
           initialState={initialNavState}
           onStateChange={(state) => {
             if (Platform.OS === 'web') {
