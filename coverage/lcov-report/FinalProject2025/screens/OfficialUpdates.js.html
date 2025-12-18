@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.5% </span>
+                <span class="strong">81.63% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>35/40</span>
+                <span class='fraction'>40/49</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>12/20</span>
+                <span class='fraction'>20/32</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.1% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>35/38</span>
+                <span class='fraction'>40/45</span>
             </div>
         
             
@@ -171,7 +171,23 @@
 <a name='L106'></a><a href='#L106'>106</a>
 <a name='L107'></a><a href='#L107'>107</a>
 <a name='L108'></a><a href='#L108'>108</a>
-<a name='L109'></a><a href='#L109'>109</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,6 +197,15 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -203,6 +228,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -217,15 +245,19 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -288,10 +320,19 @@ import { useNavigation } from '@react-navigation/native';
 export default function OfficialUpdates() {
   const navigation = useNavigation();
 &nbsp;
+  // Some hosting environments (or extensions) apply a strict CSP that blocks 'unsafe-eval'.
+  // Third-party widgets may rely on eval/new Function internally; allow disabling them via env.
+  const disableThirdPartyWidgets =
+    (typeof process !== 'undefined' &amp;&amp;
+      process.env &amp;&amp;
+      process.env.EXPO_PUBLIC_DISABLE_THIRD_PARTY_WIDGETS === '1') ||
+    false;
+&nbsp;
   // General RSS feed (replaces the weather widget)
   const RssGeneralWidget = React.useCallback(() =&gt; {
     React.useEffect(() =&gt; {
       <span class="missing-if-branch" title="if path not taken" >I</span>if (Platform.OS !== 'web') <span class="cstat-no" title="statement not covered" >return;</span>
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (disableThirdPartyWidgets) <span class="cstat-no" title="statement not covered" >return;</span>
       const host = document.getElementById('rssapp-container-g2');
       <span class="missing-if-branch" title="else path not taken" >E</span>if (host &amp;&amp; !host.querySelector('rssapp-feed')) {
         const el = document.createElement('rssapp-feed');
@@ -310,16 +351,20 @@ export default function OfficialUpdates() {
     <span class="missing-if-branch" title="if path not taken" >I</span>if (Platform.OS !== 'web') {
 <span class="cstat-no" title="statement not covered" >      return &lt;StatusCard title="Official Updates" subtitle="Unavailable on native" /&gt;;</span>
     }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (disableThirdPartyWidgets) {
+<span class="cstat-no" title="statement not covered" >      return &lt;StatusCard title="Official Updates" subtitle="Disabled on this deployment (CSP-safe mode)" /&gt;;</span>
+    }
     return (
       &lt;StatusCard title="Official Updates"&gt;
         &lt;View nativeID="rssapp-container-g2" style={styles.rssContainer} /&gt;
       &lt;/StatusCard&gt;
     );
-  }, []);
+  }, [disableThirdPartyWidgets]);
 &nbsp;
   const RssWidget = React.useCallback(() =&gt; {
     React.useEffect(() =&gt; {
       <span class="missing-if-branch" title="if path not taken" >I</span>if (Platform.OS !== 'web') <span class="cstat-no" title="statement not covered" >return;</span>
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (disableThirdPartyWidgets) <span class="cstat-no" title="statement not covered" >return;</span>
       const host = document.getElementById('rssapp-container');
       <span class="missing-if-branch" title="else path not taken" >E</span>if (host &amp;&amp; !host.querySelector('rssapp-list')) {
         const el = document.createElement('rssapp-list');
@@ -338,12 +383,15 @@ export default function OfficialUpdates() {
     <span class="missing-if-branch" title="if path not taken" >I</span>if (Platform.OS !== 'web') {
 <span class="cstat-no" title="statement not covered" >      return &lt;StatusCard title="SCDF Updates" subtitle="Unavailable on native" /&gt;;</span>
     }
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (disableThirdPartyWidgets) {
+<span class="cstat-no" title="statement not covered" >      return &lt;StatusCard title="SCDF Updates" subtitle="Disabled on this deployment (CSP-safe mode)" /&gt;;</span>
+    }
     return (
       &lt;StatusCard title="SCDF Updates"&gt;
         &lt;View nativeID="rssapp-container" style={styles.rssContainer} /&gt;
       &lt;/StatusCard&gt;
     );
-  }, []);
+  }, [disableThirdPartyWidgets]);
 &nbsp;
   return (
     &lt;SafeAreaView style={styles.container}&gt;
@@ -394,7 +442,7 @@ const styles = StyleSheet.create({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-12-18T11:03:46.240Z
+                at 2025-12-18T19:30:03.806Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

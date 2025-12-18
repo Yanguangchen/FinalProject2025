@@ -1,31 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1766055826286" clover="3.2.0">
-  <project timestamp="1766055826286" name="All files">
-    <metrics statements="439" coveredstatements="181" conditionals="290" coveredconditionals="76" methods="106" coveredmethods="42" elements="835" coveredelements="299" complexity="0" loc="439" ncloc="439" packages="4" files="18" classes="18"/>
+<coverage generated="1766086203866" clover="3.2.0">
+  <project timestamp="1766086203866" name="All files">
+    <metrics statements="563" coveredstatements="208" conditionals="419" coveredconditionals="104" methods="145" coveredmethods="48" elements="1127" coveredelements="360" complexity="0" loc="563" ncloc="563" packages="4" files="27" classes="27"/>
     <package name="FinalProject2025">
-      <metrics statements="16" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="21" coveredstatements="0" conditionals="29" coveredconditionals="0" methods="3" coveredmethods="0"/>
       <file name="App.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\App.js">
-        <metrics statements="16" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
+        <metrics statements="21" coveredstatements="0" conditionals="29" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="28" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="33" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="50" count="0" type="stmt"/>
+        <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="60" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="62" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="93" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="94" count="0" type="stmt"/>
       </file>
     </package>
     <package name="FinalProject2025.UI">
-      <metrics statements="26" coveredstatements="26" conditionals="43" coveredconditionals="30" methods="11" coveredmethods="11"/>
+      <metrics statements="82" coveredstatements="26" conditionals="93" coveredconditionals="30" methods="33" coveredmethods="11"/>
+      <file name="4options.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\UI\4options.js">
+        <metrics statements="28" coveredstatements="0" conditionals="25" coveredconditionals="0" methods="11" coveredmethods="0"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+      </file>
+      <file name="6option.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\UI\6option.js">
+        <metrics statements="28" coveredstatements="0" conditionals="25" coveredconditionals="0" methods="11" coveredmethods="0"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="109" count="0" type="stmt"/>
+      </file>
       <file name="arrow-back.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\UI\arrow-back.js">
         <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="13" count="8" type="stmt"/>
@@ -39,9 +106,9 @@
       </file>
       <file name="button-short.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\UI\button-short.js">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="13" count="12" type="stmt"/>
-        <line num="17" count="12" type="stmt"/>
-        <line num="28" count="6" type="stmt"/>
+        <line num="13" count="15" type="stmt"/>
+        <line num="17" count="15" type="stmt"/>
+        <line num="28" count="7" type="stmt"/>
       </file>
       <file name="connection-banner.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\UI\connection-banner.js">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -124,24 +191,24 @@
       </file>
       <file name="ProgressContext.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\context\ProgressContext.js">
         <metrics statements="14" coveredstatements="10" conditionals="6" coveredconditionals="0" methods="13" coveredmethods="3"/>
-        <line num="3" count="11" type="stmt"/>
-        <line num="12" count="11" type="stmt"/>
-        <line num="14" count="11" type="stmt"/>
+        <line num="3" count="12" type="stmt"/>
+        <line num="12" count="14" type="stmt"/>
+        <line num="14" count="14" type="stmt"/>
         <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="16" count="0" type="stmt"/>
-        <line num="19" count="11" type="stmt"/>
+        <line num="19" count="14" type="stmt"/>
         <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="23" count="11" type="stmt"/>
+        <line num="23" count="14" type="stmt"/>
         <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="27" count="11" type="stmt"/>
-        <line num="29" count="11" type="stmt"/>
-        <line num="30" count="11" type="stmt"/>
-        <line num="34" count="11" type="stmt"/>
+        <line num="27" count="14" type="stmt"/>
+        <line num="29" count="14" type="stmt"/>
+        <line num="30" count="14" type="stmt"/>
+        <line num="34" count="14" type="stmt"/>
         <line num="38" count="4" type="stmt"/>
       </file>
     </package>
     <package name="FinalProject2025.screens">
-      <metrics statements="343" coveredstatements="140" conditionals="211" coveredconditionals="46" methods="67" coveredmethods="27"/>
+      <metrics statements="406" coveredstatements="167" conditionals="271" coveredconditionals="74" methods="84" coveredmethods="33"/>
       <file name="ElevationMapScreen.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\screens\ElevationMapScreen.js">
         <metrics statements="184" coveredstatements="1" conditionals="137" coveredconditionals="0" methods="27" coveredmethods="0"/>
         <line num="9" count="0" type="stmt"/>
@@ -330,78 +397,82 @@
         <line num="379" count="1" type="stmt"/>
       </file>
       <file name="HomeScreen.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\screens\HomeScreen.js">
-        <metrics statements="71" coveredstatements="64" conditionals="40" coveredconditionals="22" methods="12" coveredmethods="9"/>
+        <metrics statements="75" coveredstatements="67" conditionals="48" coveredconditionals="28" methods="12" coveredmethods="9"/>
         <line num="10" count="2" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <line num="18" count="1" type="cond" truecount="4" falsecount="0"/>
         <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
+        <line num="26" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
+        <line num="29" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="30" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
-        <line num="35" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="35" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
         <line num="38" count="1" type="stmt"/>
         <line num="39" count="1" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
         <line num="44" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="45" count="0" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="55" count="1" type="stmt"/>
-        <line num="56" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="53" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="56" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="57" count="0" type="stmt"/>
         <line num="59" count="1" type="stmt"/>
-        <line num="60" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="61" count="1" type="stmt"/>
-        <line num="64" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="66" count="1" type="stmt"/>
-        <line num="67" count="1" type="cond" truecount="2" falsecount="2"/>
-        <line num="68" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="69" count="1" type="stmt"/>
-        <line num="73" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="74" count="1" type="stmt"/>
-        <line num="75" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="76" count="1" type="stmt"/>
-        <line num="77" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="72" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="76" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="78" count="1" type="stmt"/>
-        <line num="79" count="1" type="stmt"/>
-        <line num="80" count="1" type="stmt"/>
-        <line num="81" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="82" count="1" type="stmt"/>
-        <line num="83" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="84" count="1" type="stmt"/>
+        <line num="79" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="80" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="85" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="87" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="88" count="1" type="stmt"/>
         <line num="89" count="1" type="stmt"/>
         <line num="90" count="1" type="stmt"/>
         <line num="91" count="1" type="stmt"/>
-        <line num="92" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="92" count="1" type="stmt"/>
         <line num="93" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="94" count="1" type="stmt"/>
-        <line num="96" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
+        <line num="95" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="96" count="1" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
         <line num="102" count="1" type="stmt"/>
         <line num="103" count="1" type="stmt"/>
-        <line num="104" count="1" type="stmt"/>
-        <line num="105" count="1" type="stmt"/>
+        <line num="104" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="105" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="106" count="1" type="stmt"/>
-        <line num="110" count="1" type="stmt"/>
+        <line num="108" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="114" count="1" type="stmt"/>
         <line num="115" count="1" type="stmt"/>
-        <line num="126" count="0" type="stmt"/>
-        <line num="127" count="0" type="stmt"/>
-        <line num="130" count="0" type="stmt"/>
-        <line num="139" count="1" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="117" count="1" type="stmt"/>
+        <line num="118" count="1" type="stmt"/>
+        <line num="122" count="1" type="stmt"/>
+        <line num="127" count="1" type="stmt"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="139" count="0" type="stmt"/>
+        <line num="142" count="0" type="stmt"/>
+        <line num="151" count="1" type="stmt"/>
       </file>
       <file name="LanguageSelect.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\screens\LanguageSelect.js">
         <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
@@ -416,46 +487,126 @@
         <line num="51" count="0" type="stmt"/>
         <line num="59" count="1" type="stmt"/>
       </file>
+      <file name="Level1Screen.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\screens\Level1Screen.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="Level2Screen.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\screens\Level2Screen.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="Level3Screen.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\screens\Level3Screen.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="Level4Screen.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\screens\Level4Screen.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="Level5Screen.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\screens\Level5Screen.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="LevelScreen.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\screens\LevelScreen.js">
+        <metrics statements="26" coveredstatements="0" conditionals="23" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="55" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+      </file>
+      <file name="Map.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\screens\Map.js">
+        <metrics statements="21" coveredstatements="19" conditionals="17" coveredconditionals="14" methods="7" coveredmethods="6"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="cond" truecount="2" falsecount="1"/>
+        <line num="11" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="34" count="15" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="82" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="83" count="15" type="stmt"/>
+        <line num="84" count="15" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="132" count="1" type="stmt"/>
+      </file>
       <file name="OfficialUpdates.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\screens\OfficialUpdates.js">
-        <metrics statements="38" coveredstatements="35" conditionals="20" coveredconditionals="12" methods="6" coveredmethods="5"/>
+        <metrics statements="45" coveredstatements="40" conditionals="32" coveredconditionals="20" methods="6" coveredmethods="5"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="cond" truecount="3" falsecount="1"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <line num="13" count="1" type="cond" truecount="4" falsecount="0"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
+        <line num="24" count="1" type="cond" truecount="3" falsecount="1"/>
         <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
         <line num="29" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="30" count="0" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="38" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="0" type="stmt"/>
         <line num="41" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="43" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="42" count="0" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="48" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
         <line num="52" count="1" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="57" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="67" count="1" type="stmt"/>
+        <line num="53" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="54" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="61" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="70" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="71" count="0" type="stmt"/>
-        <line num="84" count="1" type="stmt"/>
+        <line num="73" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
       </file>
       <file name="PreparationScreen.js" path="C:\Users\Yangu\Documents\GitHub\FinalProject2025\screens\PreparationScreen.js">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
