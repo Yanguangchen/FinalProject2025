@@ -12,9 +12,18 @@ export default function HomeScreen() {
   const [scdfTitle, setScdfTitle] = React.useState(null);
   const [scdfDate, setScdfDate] = React.useState(null);
 
+  // Some hosting environments (or extensions) apply a strict CSP that blocks 'unsafe-eval'.
+  // Third-party widgets may rely on eval/new Function internally; allow disabling them via env.
+  const disableThirdPartyWidgets =
+    (typeof process !== 'undefined' &&
+      process.env &&
+      process.env.EXPO_PUBLIC_DISABLE_THIRD_PARTY_WIDGETS === '1') ||
+    false;
+
   const WeatherWidget = React.useCallback(() => {
     React.useEffect(() => {
       if (Platform.OS !== 'web') return;
+      if (disableThirdPartyWidgets) return;
       // Prepare container attributes per WeatherWidget.org embed
       const container = document.getElementById('ww_c34773be0d417');
       if (container) {
@@ -44,12 +53,15 @@ export default function HomeScreen() {
     if (Platform.OS !== 'web') {
       return <StatusCard title="Weather" subtitle="Unavailable on native" />;
     }
+    if (disableThirdPartyWidgets) {
+      return <StatusCard title="Weather" subtitle="Disabled on this deployment (CSP-safe mode)" />;
+    }
     return (
       <StatusCard title="Weather">
         <View nativeID="ww_c34773be0d417" style={styles.weatherContainer} />
       </StatusCard>
     );
-  }, []);
+  }, [disableThirdPartyWidgets]);
 
   React.useEffect(() => {
     let mounted = true;
