@@ -5,6 +5,9 @@
     "version": "0.1.0",
     "orientation": "portrait",
     "sdkVersion": "52.0.0",
+    "web": {
+      "favicon": "./assets/Splash.png"
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
