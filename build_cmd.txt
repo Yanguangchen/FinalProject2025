@@ -1,0 +1,7 @@
+Use this command to trigger the CI/CD pipeline
+
+
+git checkout main
+git pull
+git commit --allow-empty -m "Trigger CI/CD"
+git push origin main
