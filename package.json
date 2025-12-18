@@ -8,7 +8,7 @@
     "android": "npx expo run:android",
     "ios": "npx expo run:ios",
     "web": "npx expo start --web",
-    "export:web": "npx expo export --platform web",
+    "export:web": "npx expo export --platform web --output-dir dist",
     "test": "jest --runInBand",
     "test:watch": "jest --watch"
   },
