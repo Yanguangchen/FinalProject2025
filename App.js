@@ -36,7 +36,8 @@ export default function App() {
   }, []);
 
   if (!fontsLoaded) {
-    return null;
+    // Render app while fonts load to avoid blank screen on web
+    // Text will swap to custom font once loaded
   }
 
   // Base path for GitHub Pages (e.g., /FinalProject2025), injected via EXPO_PUBLIC_BASE_PATH
