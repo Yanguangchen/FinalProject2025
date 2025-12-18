@@ -7,10 +7,19 @@ import { useNavigation } from '@react-navigation/native';
 export default function OfficialUpdates() {
   const navigation = useNavigation();
 
+  // Some hosting environments (or extensions) apply a strict CSP that blocks 'unsafe-eval'.
+  // Third-party widgets may rely on eval/new Function internally; allow disabling them via env.
+  const disableThirdPartyWidgets =
+    (typeof process !== 'undefined' &&
+      process.env &&
+      process.env.EXPO_PUBLIC_DISABLE_THIRD_PARTY_WIDGETS === '1') ||
+    false;
+
   // General RSS feed (replaces the weather widget)
   const RssGeneralWidget = React.useCallback(() => {
     React.useEffect(() => {
       if (Platform.OS !== 'web') return;
+      if (disableThirdPartyWidgets) return;
       const host = document.getElementById('rssapp-container-g2');
       if (host && !host.querySelector('rssapp-feed')) {
         const el = document.createElement('rssapp-feed');
@@ -29,16 +38,20 @@ export default function OfficialUpdates() {
     if (Platform.OS !== 'web') {
       return <StatusCard title="Official Updates" subtitle="Unavailable on native" />;
     }
+    if (disableThirdPartyWidgets) {
+      return <StatusCard title="Official Updates" subtitle="Disabled on this deployment (CSP-safe mode)" />;
+    }
     return (
       <StatusCard title="Official Updates">
         <View nativeID="rssapp-container-g2" style={styles.rssContainer} />
       </StatusCard>
     );
-  }, []);
+  }, [disableThirdPartyWidgets]);
 
   const RssWidget = React.useCallback(() => {
     React.useEffect(() => {
       if (Platform.OS !== 'web') return;
+      if (disableThirdPartyWidgets) return;
       const host = document.getElementById('rssapp-container');
       if (host && !host.querySelector('rssapp-list')) {
         const el = document.createElement('rssapp-list');
@@ -57,12 +70,15 @@ export default function OfficialUpdates() {
     if (Platform.OS !== 'web') {
       return <StatusCard title="SCDF Updates" subtitle="Unavailable on native" />;
     }
+    if (disableThirdPartyWidgets) {
+      return <StatusCard title="SCDF Updates" subtitle="Disabled on this deployment (CSP-safe mode)" />;
+    }
     return (
       <StatusCard title="SCDF Updates">
         <View nativeID="rssapp-container" style={styles.rssContainer} />
       </StatusCard>
     );
-  }, []);
+  }, [disableThirdPartyWidgets]);
 
   return (
     <SafeAreaView style={styles.container}>
