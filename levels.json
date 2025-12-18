@@ -1,0 +1,301 @@
+{
+    "program_title": "Rally Preparedness Progression Path",
+    "description": "A gamified, 5-level preparedness curriculum. Each level consists of 4 checklists: two 'Quick Wins' (4 options) and two 'Deep Dives' (6 options) to gradually increase user engagement.",
+    "levels": [
+      {
+        "level_id": 1,
+        "level_name": "The Digital Scout",
+        "focus": "Quick Wins & Digital Backup",
+        "quizzes": [
+          {
+            "quiz_id": "1.1",
+            "title": "Digital Vault",
+            "prompt": "Have you saved digital copies of these critical documents on your phone or cloud?",
+            "type": "multi_select_4",
+            "options": [
+              "Photo of Driver’s License / ID",
+              "Health Insurance Policy Number",
+              "Recent photo of family members",
+              "Proof of Address (Bill/Bank Statement)"
+            ]
+          },
+          {
+            "quiz_id": "1.2",
+            "title": "Personal Carry",
+            "prompt": "Do you have these essentials in your everyday bag or pockets?",
+            "type": "multi_select_4",
+            "options": [
+              "Portable Power Bank (Charged)",
+              "Emergency Cash (Small denominations)",
+              "Personal Medication (3-day supply)",
+              "List of Emergency Contacts (Physical copy)"
+            ]
+          },
+          {
+            "quiz_id": "1.3",
+            "title": "The Lifeline Check",
+            "prompt": "Let’s verify your communication readiness. Have you...",
+            "type": "multi_select_6",
+            "options": [
+              "Signed up for local SMS emergency alerts",
+              "Identified an 'Out-of-Area' contact person",
+              "Taught family members how to text vs. call",
+              "Programmed 'ICE' (In Case of Emergency) in phone",
+              "Downloaded offline maps for your area",
+              "Agreed on a physical family meeting spot"
+            ]
+          },
+          {
+            "quiz_id": "1.4",
+            "title": "Family Protocol",
+            "prompt": "Ensure everyone is on the same page. Have you discussed:",
+            "type": "multi_select_6",
+            "options": [
+              "Where to meet if separated near home",
+              "Where to meet if separated outside the neighborhood",
+              "Who picks up the children from school",
+              "How to use the 'I am Safe' feature on social media",
+              "A secret password for children to trust strangers",
+              "Location of the nearest police station"
+            ]
+          }
+        ]
+      },
+      {
+        "level_id": 2,
+        "level_name": "The Kit Builder",
+        "focus": "72-Hour Survival Bag",
+        "quizzes": [
+          {
+            "quiz_id": "2.1",
+            "title": "The Core Four",
+            "prompt": "Check off the absolute survival essentials in your bag:",
+            "type": "multi_select_4",
+            "options": [
+              "Water (1 liter per person or purification tablets)",
+              "Non-perishable food (Energy bars, canned goods)",
+              "Flashlight (with extra batteries)",
+              "First Aid Kit (Basic)"
+            ]
+          },
+          {
+            "quiz_id": "2.2",
+            "title": "Hygiene & Health",
+            "prompt": "Sanitation prevents illness during crisis. Do you have:",
+            "type": "multi_select_4",
+            "options": [
+              "Hand sanitizer or wet wipes",
+              "N95 Masks or dust masks",
+              "Toothbrush & Toothpaste",
+              "Garbage bags (for waste/waterproofing)"
+            ]
+          },
+          {
+            "quiz_id": "2.3",
+            "title": "The Hardware Haul",
+            "prompt": "Let’s finish the kit with tools and shelter items:",
+            "type": "multi_select_6",
+            "options": [
+              "Multi-tool or Swiss Army Knife",
+              "Whistle (for signaling rescue)",
+              "Battery-powered or Crank Radio",
+              "Thermal / Mylar Emergency Blanket",
+              "Waterproof matches or lighter",
+              "Manual can opener"
+            ]
+          },
+          {
+            "quiz_id": "2.4",
+            "title": "Advanced First Aid",
+            "prompt": "Upgrade your basic kit. Do you have these trauma supplies?",
+            "type": "multi_select_6",
+            "options": [
+              "Sterile gauze pads and tape",
+              "Antiseptic wipes or solution",
+              "Scissors and Tweezers",
+              "Disposable non-latex gloves",
+              "Burn gel or dressing",
+              "Instant cold packs"
+            ]
+          }
+        ]
+      },
+      {
+        "level_id": 3,
+        "level_name": "The Home Guardian",
+        "focus": "Shelter-in-Place & Home Hardening",
+        "quizzes": [
+          {
+            "quiz_id": "3.1",
+            "title": "Utility Mastery",
+            "prompt": "Do you know exactly where these are located and how to shut them off?",
+            "type": "multi_select_4",
+            "options": [
+              "Main Water Valve",
+              "Gas Valve (and have a wrench nearby)",
+              "Electrical Circuit Breaker Box",
+              "Main Water Drainage / Sewer Trap"
+            ]
+          },
+          {
+            "quiz_id": "3.2",
+            "title": "Fire & Safety",
+            "prompt": "Check your home safety hardware:",
+            "type": "multi_select_4",
+            "options": [
+              "Fire Extinguisher (ABC type, not expired)",
+              "Smoke Detectors (Tested this month)",
+              "Carbon Monoxide Detector",
+              "Clear exits (No furniture blocking doors)"
+            ]
+          },
+          {
+            "quiz_id": "3.3",
+            "title": "Flood & Storm Defense",
+            "prompt": "If a storm warning triggers, are you ready to secure the house?",
+            "type": "multi_select_6",
+            "options": [
+              "Heavy furniture secured/anchored",
+              "Important documents stored in waterproof container",
+              "Electronics elevated off the ground floor",
+              "Gutters and drains cleared of debris",
+              "Potential projectiles (patio furniture) moved indoors",
+              "Sandbags or door dams accessible"
+            ]
+          },
+          {
+            "quiz_id": "3.4",
+            "title": "Evacuation Security",
+            "prompt": "If you must leave immediately, is your home ready to be left?",
+            "type": "multi_select_6",
+            "options": [
+              "All windows and doors locked",
+              "Electrical appliances unplugged (except fridge)",
+              "Perishables removed from fridge/freezer",
+              "Valuables moved to upper floor or attic",
+              "Mail delivery paused or neighbor notified",
+              "Security system or cameras activated"
+            ]
+          }
+        ]
+      },
+      {
+        "level_id": 4,
+        "level_name": "The Community Connector",
+        "focus": "Vulnerable Groups & Neighborhood",
+        "quizzes": [
+          {
+            "quiz_id": "4.1",
+            "title": "The Vulnerable Check",
+            "prompt": "Have you accounted for specific needs in your household?",
+            "type": "multi_select_4",
+            "options": [
+              "Baby supplies (Formula, diapers) OR Mobility aids",
+              "Prescription glasses / Contact lens solution",
+              "Hearing aid batteries",
+              "Comfort item for children (Toy/Book)"
+            ]
+          },
+          {
+            "quiz_id": "4.2",
+            "title": "Pet Protocol",
+            "prompt": "Don't leave them behind. Do you have:",
+            "type": "multi_select_4",
+            "options": [
+              "Pet Carrier / Leash",
+              "3 Days of Pet Food & Water",
+              "Photo of you with your pet (proof of ownership)",
+              "Vaccination records copy"
+            ]
+          },
+          {
+            "quiz_id": "4.3",
+            "title": "The Network",
+            "prompt": "Building resilience beyond your front door:",
+            "type": "multi_select_6",
+            "options": [
+              "Shared spare key with a trusted neighbor",
+              "Identified neighbors who might need help",
+              "Know the route to the nearest designated shelter",
+              "Know the route to the nearest hospital",
+              "Have a physical map of the local area",
+              "Joined a local neighborhood watch/chat group"
+            ]
+          },
+          {
+            "quiz_id": "4.4",
+            "title": "External Support",
+            "prompt": "Do you know where to find help if local services fail?",
+            "type": "multi_select_6",
+            "options": [
+              "Location of nearest Police Station",
+              "Location of nearest Fire Station",
+              "Frequency of local emergency radio station",
+              "Contact for local Red Cross / NGO chapter",
+              "Location of high ground / flood evacuation point",
+              "Designated community relief distribution center"
+            ]
+          }
+        ]
+      },
+      {
+        "level_id": 5,
+        "level_name": "The Resilience Master",
+        "focus": "Skill Verification & Maintenance",
+        "quizzes": [
+          {
+            "quiz_id": "5.1",
+            "title": "Skill Check",
+            "prompt": "Items break; skills remain. Can you:",
+            "type": "multi_select_4",
+            "options": [
+              "Perform CPR / Basic First Aid",
+              "Use a Fire Extinguisher (PASS method)",
+              "Change a tire on your vehicle",
+              "Shut off utilities manually"
+            ]
+          },
+          {
+            "quiz_id": "5.2",
+            "title": "Vehicle Readiness",
+            "prompt": "If you need to evacuate by car:",
+            "type": "multi_select_4",
+            "options": [
+              "Gas tank always kept at least half full",
+              "Jumper cables in trunk",
+              "Spare tire and jack present",
+              "Car charger for phone"
+            ]
+          },
+          {
+            "quiz_id": "5.3",
+            "title": "The Annual Audit",
+            "prompt": "The final step is maintenance. Have you recently:",
+            "type": "multi_select_6",
+            "options": [
+              "Rotated stored water (every 6 months)",
+              "Checked food expiry dates and replaced items",
+              "Tested flashlight/radio batteries",
+              "Updated children's photos in digital vault",
+              "Reviewed insurance coverage for current value",
+              "Conducted a 5-minute drill with the household"
+            ]
+          },
+          {
+            "quiz_id": "5.4",
+            "title": "Long-Term Resilience",
+            "prompt": "Preparing for extended disruptions (1+ weeks):",
+            "type": "multi_select_6",
+            "options": [
+              "Camping stove or alternative cooking method",
+              "Backup power source (Solar charger / Generator)",
+              "Water purification system (Filter / Tablets)",
+              "Extra supply of critical prescription meds",
+              "Warm clothing / sleeping bags for all",
+              "Entertainment (Board games / Books) for morale"
+            ]
+          }
+        ]
+      }
+    ]
+  }

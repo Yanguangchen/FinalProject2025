@@ -9,6 +9,12 @@ import ShelterMapScreen from './screens/ShelterMapScreen';
 import ElevationMapScreen from './screens/ElevationMapScreen';
 import PreparationScreen from './screens/PreparationScreen';
 import OfficialUpdates from './screens/OfficialUpdates';
+import Level1Screen from './screens/Level1Screen';
+import Level2Screen from './screens/Level2Screen';
+import Level3Screen from './screens/Level3Screen';
+import Level4Screen from './screens/Level4Screen';
+import Level5Screen from './screens/Level5Screen';
+import MapScreen from './screens/Map';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ProgressProvider } from './context/ProgressContext';
@@ -29,8 +35,17 @@ export default function App() {
   React.useEffect(() => {
     if (Platform.OS !== 'web') return;
     try {
-      const saved = window.sessionStorage.getItem(PERSISTENCE_KEY);
-      if (saved) setInitialNavState(JSON.parse(saved));
+      const path = window.location.pathname || '/';
+      const base = webBasePath || '';
+      const atBaseOnly =
+        path === base ||
+        path === base + '/' ||
+        (base === '' && (path === '/' || path === ''));
+      // Honor deep links: only restore saved state when we're at the app root
+      if (atBaseOnly) {
+        const saved = window.sessionStorage.getItem(PERSISTENCE_KEY);
+        if (saved) setInitialNavState(JSON.parse(saved));
+      }
     } catch (_e) {}
     setIsNavReady(true);
   }, []);
@@ -45,7 +60,26 @@ export default function App() {
     (typeof process !== 'undefined' && process.env && process.env.EXPO_PUBLIC_BASE_PATH) || '';
   const linking =
     Platform.OS === 'web' && typeof window !== 'undefined'
-      ? { prefixes: [window.location.origin + webBasePath] }
+      ? {
+          prefixes: [window.location.origin + webBasePath],
+          config: {
+            screens: {
+              Home: '',
+              Level1: 'level/1',
+              Level2: 'level/2',
+              Level3: 'level/3',
+              Level4: 'level/4',
+              Level5: 'level/5',
+              ShelterMap: 'shelters',
+              ElevationMap: 'elevation',
+              Preparation: 'prepare',
+              OfficialUpdates: 'updates',
+              LanguageSelect: 'language',
+              Welcome: 'welcome',
+              Map: 'map',
+            },
+          },
+        }
       : undefined;
 
   return (
@@ -68,6 +102,12 @@ export default function App() {
             <Stack.Screen name="Welcome" component={WelcomeScreen} />
             <Stack.Screen name="LanguageSelect" component={LanguageSelect} />
             <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Level1" component={Level1Screen} />
+            <Stack.Screen name="Level2" component={Level2Screen} />
+            <Stack.Screen name="Level3" component={Level3Screen} />
+            <Stack.Screen name="Level4" component={Level4Screen} />
+            <Stack.Screen name="Level5" component={Level5Screen} />
+            <Stack.Screen name="Map" component={MapScreen} />
             <Stack.Screen name="ShelterMap" component={ShelterMapScreen} />
             <Stack.Screen name="ElevationMap" component={ElevationMapScreen} />
             <Stack.Screen name="Preparation" component={PreparationScreen} />
