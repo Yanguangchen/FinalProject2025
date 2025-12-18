@@ -1,0 +1,49 @@
+name: Publish Docker
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write  # for GHCR
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Choose ONE login: GHCR or Docker Hub
+
+      # GHCR login (no additional secrets required)
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # Docker Hub login (if using Docker Hub)
+      # - name: Login to Docker Hub
+      #   uses: docker/login-action@v3
+      #   with:
+      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          target: web
+          push: true
+          build-args: |
+            EXPO_PUBLIC_GOOGLE_MAPS_API_KEY=${{ secrets.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY }}
+            EXPO_PUBLIC_MAPTILER_KEY=${{ secrets.EXPO_PUBLIC_MAPTILER_KEY }}
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/finalproject2025:latest
+            ghcr.io/${{ github.repository_owner }}/finalproject2025:${{ github.sha }}
