@@ -47,6 +47,7 @@ Integration tests validate complete screens and navigation-level behavior in a w
 - `screens-language-select.web.test.js`
 - `screens-home.web.test.js`
 - `screens-preparation.web.test.js`
+- `screens-map.web.test.js` (Map screen: renders level nodes and navigates to levels)
 - `screens-shelter-map.web.test.js`
 - `screens-elevation-map.web.test.js` (file: `ElevationMapScreen.web.test.js`)
 - `screens-official-updates.web.test.js`
