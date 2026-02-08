@@ -4,6 +4,7 @@ import FourOptions from '../UI/4options';
 import SixOption from '../UI/6option';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import levels from '../levels.json';
+import { useProgress } from '../context/ProgressContext';
 
 /**
  * Generic LevelScreen
@@ -14,6 +15,7 @@ import levels from '../levels.json';
 export default function LevelScreen({ levelId: propLevelId }) {
   const nav = useNavigation();
   const route = useRoute();
+  const { setCurrentLevel, setCurrentQuizIndex, setShowCongrats, resetProgress } = useProgress();
   const levelId =
     typeof propLevelId === 'number'
       ? propLevelId
@@ -34,19 +36,33 @@ export default function LevelScreen({ levelId: propLevelId }) {
 
   const handleClose = React.useCallback(() => {
     try {
-      nav.navigate('Home');
+      setShowCongrats(false);
+      resetProgress();
+      nav.navigate('Map');
     } catch (_e) {}
-  }, [nav]);
+  }, [nav, resetProgress, setShowCongrats]);
 
   const handleMoveOn = React.useCallback(() => {
     if (idx + 1 < quizzes.length) {
+      setCurrentQuizIndex(idx + 1);
       setIdx(idx + 1);
     } else {
+      const maxLevel = (levels && levels.levels && levels.levels.length) || 1;
+      const nextLevel = Math.min(levelId + 1, maxLevel);
+      setCurrentLevel(nextLevel);
+      setCurrentQuizIndex(0);
+      setShowCongrats(true);
       try {
-        nav.navigate('Home');
+        resetProgress();
+        nav.navigate('Map');
       } catch (_e) {}
     }
-  }, [idx, quizzes.length, nav]);
+  }, [idx, quizzes.length, nav, levelId, setCurrentLevel, setCurrentQuizIndex, setShowCongrats, resetProgress]);
+
+  React.useEffect(() => {
+    setCurrentLevel(levelId);
+    setCurrentQuizIndex(idx);
+  }, [levelId, idx, setCurrentLevel, setCurrentQuizIndex]);
 
   if (!quiz) {
     return <View style={{ flex: 1, backgroundColor: '#fff' }} />;

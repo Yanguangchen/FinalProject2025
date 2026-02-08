@@ -11,6 +11,8 @@ export default function HomeScreen() {
 
   const [scdfTitle, setScdfTitle] = React.useState(null);
   const [scdfDate, setScdfDate] = React.useState(null);
+  const [govTitle, setGovTitle] = React.useState(null);
+  const [govDate, setGovDate] = React.useState(null);
 
   // Some hosting environments (or extensions) apply a strict CSP that blocks 'unsafe-eval'.
   // Third-party widgets may rely on eval/new Function internally; allow disabling them via env.
@@ -65,7 +67,8 @@ export default function HomeScreen() {
 
   React.useEffect(() => {
     let mounted = true;
-    const FEED_URL = 'https://rss.app/feeds/xBoCmprkh37V1t7g.xml';
+    const FEED_URL_SCDF = 'https://rss.app/feeds/xBoCmprkh37V1t7g.xml';
+    const FEED_URL_GOV = 'https://rss.app/feeds/X3DIbxijyrFdfjI1.xml';
 
     function parseFirstItem(xml) {
       const itemMatch = xml.match(/<item>[\s\S]*?<\/item>/);
@@ -98,16 +101,24 @@ export default function HomeScreen() {
 
     async function load() {
       try {
-        const resp = await fetch(FEED_URL, { method: 'GET', cache: 'no-store' });
-        const xmlText = await resp.text();
-        const first = parseFirstItem(xmlText);
-        if (!mounted || !first) return;
-        setScdfTitle(first.title || 'SCDF Update');
-        setScdfDate(formatPubDate(first.pubDate));
+        const [scdfResp, govResp] = await Promise.all([
+          fetch(FEED_URL_SCDF, { method: 'GET', cache: 'no-store' }),
+          fetch(FEED_URL_GOV, { method: 'GET', cache: 'no-store' }),
+        ]);
+        const [scdfXml, govXml] = await Promise.all([scdfResp.text(), govResp.text()]);
+        if (!mounted) return;
+        const scdfFirst = parseFirstItem(scdfXml);
+        const govFirst = parseFirstItem(govXml);
+        setScdfTitle(scdfFirst?.title || null);
+        setScdfDate(formatPubDate(scdfFirst?.pubDate));
+        setGovTitle(govFirst?.title || null);
+        setGovDate(formatPubDate(govFirst?.pubDate));
       } catch (_e) {
         if (!mounted) return;
         setScdfTitle(null);
         setScdfDate(null);
+        setGovTitle(null);
+        setGovDate(null);
       }
     }
 
@@ -125,7 +136,12 @@ export default function HomeScreen() {
         <Text style={styles.sectionTitle}>CURRENT STATUS</Text>
         <WeatherWidget />
         <Pressable accessibilityRole="button" onPress={() => navigation.navigate('OfficialUpdates')}>
-          <StatusCard title="Government Alerts" subtitle="Get the latest update" compact />
+          <StatusCard
+            title={govTitle || 'Government Alerts'}
+            subtitle={govDate || 'Fetching latest...'}
+            compact
+            variant="alert"
+          />
         </Pressable>
 
         <Text style={styles.sectionTitle}>DASHBOARD</Text>

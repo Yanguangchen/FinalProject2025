@@ -21,6 +21,10 @@ export default function FourOptions({ title, subtitle, options = [], onClose, on
   const four = (options || []).slice(0, 4);
   const [selected, setSelected] = React.useState(() => Array(four.length).fill(false));
 
+  React.useEffect(() => {
+    setSelected(Array(four.length).fill(false));
+  }, [four.length, title, subtitle]);
+
   const handleToggle = React.useCallback(
     (idx) => {
       setSelected((cur) => {
@@ -58,8 +62,21 @@ export default function FourOptions({ title, subtitle, options = [], onClose, on
     <View style={styles.container}>
       {/* Header Row: Close + Progress */}
       <View style={styles.header}>
-        <Pressable accessibilityRole="button" onPress={handleClose} style={styles.closeHit}>
-          <Ionicons name="close" size={30} color="#4B4B4B" />
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Close"
+          aria-label="Close"
+          onPress={handleClose}
+          style={styles.closeHit}
+        >
+          <Ionicons
+            name="close"
+            size={30}
+            color="#4B4B4B"
+            accessibilityRole="image"
+            accessibilityLabel="Close icon"
+            aria-label="Close icon"
+          />
         </Pressable>
         <View style={styles.progressWrapper}>
           <ProgressBar progress={progress} height={10} />

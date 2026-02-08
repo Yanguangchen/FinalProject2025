@@ -43,6 +43,7 @@ export default function WelcomeScreen() {
         <View style={styles.mascotWrapper}>
           <Image
             accessibilityLabel="Firefighter mascot"
+            aria-label="Firefighter mascot"
             source={require('../assets/Splash.png')}
             style={styles.mascot}
             resizeMode="contain"

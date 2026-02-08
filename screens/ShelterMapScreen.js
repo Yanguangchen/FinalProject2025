@@ -118,7 +118,15 @@ export default function ShelterMapScreen() {
       </View>
 
       <View style={styles.overlayBottom}>
-        <Ionicons name="home" size={22} color="#ffb300" style={{ marginRight: 10 }} />
+        <Ionicons
+          name="home"
+          size={22}
+          color="#ffb300"
+          style={{ marginRight: 10 }}
+          accessibilityRole="image"
+          accessibilityLabel="Shelter icon"
+          aria-label="Shelter icon"
+        />
         <Text style={styles.bottomText}>Shelter Locations</Text>
       </View>
     </SafeAreaView>

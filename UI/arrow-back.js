@@ -11,8 +11,21 @@ import Ionicons from '@expo/vector-icons/Ionicons';
  */
 export default function ArrowBack({ onPress, color = '#4B4B4B', size = 28 }) {
   return (
-    <Pressable accessibilityRole="button" onPress={onPress} style={styles.hit}>
-      <Ionicons name="chevron-back" size={size} color={color} />
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel="Go back"
+      aria-label="Go back"
+      onPress={onPress}
+      style={styles.hit}
+    >
+      <Ionicons
+        name="chevron-back"
+        size={size}
+        color={color}
+        accessibilityRole="image"
+        accessibilityLabel="Back arrow icon"
+        aria-label="Back arrow icon"
+      />
     </Pressable>
   );
 }
