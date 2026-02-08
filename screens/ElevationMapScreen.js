@@ -366,7 +366,15 @@ export default function ElevationMapScreen() {
       </View>
 
       <View style={styles.overlayBottom}>
-        <Ionicons name="trending-up" size={22} color="#ffb300" style={{ marginRight: 10 }} />
+        <Ionicons
+          name="trending-up"
+          size={22}
+          color="#ffb300"
+          style={{ marginRight: 10 }}
+          accessibilityRole="image"
+          accessibilityLabel="Elevation trend icon"
+          aria-label="Elevation trend icon"
+        />
         <Text style={styles.bottomText}>
           Elevation Map {loading ? '(loading...)' : elevationM != null ? `- ${elevationM} m` : ''}
           {routeElevationM != null ? `   |   Target: ${routeElevationM} m` : ''}

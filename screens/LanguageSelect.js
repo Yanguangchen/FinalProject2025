@@ -28,6 +28,8 @@ export default function LanguageSelect() {
           source={require('../assets/Splash.png')}
           style={styles.mascotSmall}
           resizeMode="contain"
+          accessibilityLabel="Firefighter mascot"
+          aria-label="Firefighter mascot"
         />
         <View style={styles.speechBubble}>
           <Text style={styles.speechText}>Reconfirm your{'\n'}language</Text>

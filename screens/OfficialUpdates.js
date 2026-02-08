@@ -4,6 +4,9 @@ import ArrowBack from '../UI/arrow-back';
 import StatusCard from '../UI/status-card';
 import { useNavigation } from '@react-navigation/native';
 
+const WIDGET_FONT_FAMILY = 'Acme_400Regular';
+const WIDGET_FONT_SIZE = 14;
+
 export default function OfficialUpdates() {
   const navigation = useNavigation();
 
@@ -15,11 +18,31 @@ export default function OfficialUpdates() {
       process.env.EXPO_PUBLIC_DISABLE_THIRD_PARTY_WIDGETS === '1') ||
     false;
 
+  const injectWidgetTypography = React.useCallback(() => {
+    if (Platform.OS !== 'web') return;
+    const styleId = 'official-updates-typography';
+    if (document.getElementById(styleId)) return;
+    const style = document.createElement('style');
+    style.id = styleId;
+    style.textContent = `
+      #rssapp-container, #rssapp-container-g2 {
+        font-family: ${WIDGET_FONT_FAMILY}, System, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        font-size: ${WIDGET_FONT_SIZE}px;
+      }
+      #rssapp-container iframe, #rssapp-container-g2 iframe {
+        font-family: ${WIDGET_FONT_FAMILY}, System, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        font-size: ${WIDGET_FONT_SIZE}px;
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
+
   // General RSS feed (replaces the weather widget)
   const RssGeneralWidget = React.useCallback(() => {
     React.useEffect(() => {
       if (Platform.OS !== 'web') return;
       if (disableThirdPartyWidgets) return;
+      injectWidgetTypography();
       const host = document.getElementById('rssapp-container-g2');
       if (host && !host.querySelector('rssapp-feed')) {
         const el = document.createElement('rssapp-feed');
@@ -43,7 +66,10 @@ export default function OfficialUpdates() {
     }
     return (
       <StatusCard title="Official Updates">
-        <View nativeID="rssapp-container-g2" style={styles.rssContainer} />
+        <View
+          nativeID="rssapp-container-g2"
+          style={[styles.rssContainer, { fontFamily: WIDGET_FONT_FAMILY, fontSize: WIDGET_FONT_SIZE }]}
+        />
       </StatusCard>
     );
   }, [disableThirdPartyWidgets]);
@@ -52,6 +78,7 @@ export default function OfficialUpdates() {
     React.useEffect(() => {
       if (Platform.OS !== 'web') return;
       if (disableThirdPartyWidgets) return;
+      injectWidgetTypography();
       const host = document.getElementById('rssapp-container');
       if (host && !host.querySelector('rssapp-list')) {
         const el = document.createElement('rssapp-list');
@@ -75,7 +102,10 @@ export default function OfficialUpdates() {
     }
     return (
       <StatusCard title="SCDF Updates">
-        <View nativeID="rssapp-container" style={styles.rssContainer} />
+        <View
+          nativeID="rssapp-container"
+          style={[styles.rssContainer, { fontFamily: WIDGET_FONT_FAMILY, fontSize: WIDGET_FONT_SIZE }]}
+        />
       </StatusCard>
     );
   }, [disableThirdPartyWidgets]);

@@ -21,6 +21,10 @@ export default function SixOption({ title, subtitle, options = [], onClose, onMo
   const six = (options || []).slice(0, 6);
   const [selected, setSelected] = React.useState(() => Array(six.length).fill(false));
 
+  React.useEffect(() => {
+    setSelected(Array(six.length).fill(false));
+  }, [six.length, title, subtitle]);
+
   const handleToggle = React.useCallback(
     (idx) => {
       setSelected((cur) => {
@@ -59,8 +63,21 @@ export default function SixOption({ title, subtitle, options = [], onClose, onMo
     <View style={styles.container}>
       {/* Header Row: Close + Progress */}
       <View style={styles.header}>
-        <Pressable accessibilityRole="button" onPress={handleClose} style={styles.closeHit}>
-          <Ionicons name="close" size={30} color="#4B4B4B" />
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Close"
+          aria-label="Close"
+          onPress={handleClose}
+          style={styles.closeHit}
+        >
+          <Ionicons
+            name="close"
+            size={30}
+            color="#4B4B4B"
+            accessibilityRole="image"
+            accessibilityLabel="Close icon"
+            aria-label="Close icon"
+          />
         </Pressable>
         <View style={styles.progressWrapper}>
           <ProgressBar progress={progress} height={10} />
