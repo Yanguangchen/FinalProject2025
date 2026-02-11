@@ -142,8 +142,10 @@ Build job:
 - export static web build (`npm run export:web`)
 - **CSP-safe mode on Pages**:
   - sets `EXPO_PUBLIC_DISABLE_THIRD_PARTY_WIDGETS=1` to avoid third-party widgets that may use `eval/new Function` under strict CSP environments
-- **GitHub Pages subpath fix**:
-  - rewrites `dist/index.html` to prefix root-absolute asset URLs (`/…`) with `/<repo>/…`
+- **GitHub Pages subpath handling**:
+  - `EXPO_PUBLIC_BASE_PATH=/<repo>` is set at build time
+  - `app.config.js` reads this into `experiments.baseUrl`, which tells Metro to prefix **all** asset URLs (HTML tags, JS bundle references, images, fonts) with `/<repo>`
+  - This replaces the old HTML-only regex rewrite, which could not fix paths embedded inside JS bundles
 - verify `dist/index.html` exists
 - writes `dist/.nojekyll`
 - writes `dist/404.html` (SPA fallback) by copying `dist/index.html`
@@ -218,7 +220,7 @@ git push origin main
 
 - **Blank GitHub Pages site / missing JS bundles (404)**:
   - usually caused by wrong base path on project pages (`/<repo>/`)
-  - this repo’s Pages workflow rewrites `dist/index.html` to fix `src="/…" / href="/…"` to `/<repo>/…`
+  - this repo uses `experiments.baseUrl` in `app.config.js` (read from `EXPO_PUBLIC_BASE_PATH`) so that Metro prefixes all asset URLs — HTML tags **and** JS bundle internal references — with `/<repo>`
 - **CSP “blocked eval”**:
   - commonly triggered by third-party widget scripts under strict CSP environments
   - Pages builds set `EXPO_PUBLIC_DISABLE_THIRD_PARTY_WIDGETS=1` to avoid those scripts
