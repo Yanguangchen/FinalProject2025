@@ -189,3 +189,12 @@ Notes:
 - Screen-only text size override is applied via `textStyle` on `ButtonLong` to prevent truncation.
 - Containers stretch to full width to ensure buttons occupy the full viewport width on web.
 
+### Optional Cloud Signup Protection (reCAPTCHA Enterprise)
+- Google sign-in can run a reCAPTCHA Enterprise check on web before auth.
+- Add these values to your local `.env`:
+  - `EXPO_PUBLIC_RECAPTCHA_SITE_KEY=<your-site-key>` (safe for client)
+  - `EXPO_PUBLIC_RECAPTCHA_VERIFY_URL=<your-backend-verify-endpoint>` (optional but recommended)
+- Do **not** place the reCAPTCHA secret key in this app.
+  - Store secret key only on your backend (Cloud Functions/Cloud Run/server API).
+  - Backend verifies token with Google reCAPTCHA Enterprise and returns `{ ok: true }` (or `{ valid: true }`) to the app.
+
