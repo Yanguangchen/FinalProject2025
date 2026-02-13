@@ -5,6 +5,7 @@ const ProgressContext = React.createContext({
   currentLevel: 1,
   currentQuizIndex: 0,
   showCongrats: false,
+  cloudLoaded: false,
   setProgress: (_v) => {},
   setCurrentLevel: (_v) => {},
   setCurrentQuizIndex: (_v) => {},
@@ -13,6 +14,8 @@ const ProgressContext = React.createContext({
   retreat: (_delta) => {},
   resetProgress: () => {},
   reset: () => {},
+  syncToCloud: () => {},
+  loadFromCloud: async () => {},
 });
 
 export function ProgressProvider({ children }) {
@@ -20,6 +23,11 @@ export function ProgressProvider({ children }) {
   const [currentLevel, setCurrentLevelState] = React.useState(1);
   const [currentQuizIndex, setCurrentQuizIndexState] = React.useState(0);
   const [showCongrats, setShowCongratsState] = React.useState(false);
+  const [cloudLoaded, setCloudLoaded] = React.useState(false);
+
+  // Cloud sync callbacks injected by CloudSyncBridge (set after mount)
+  const cloudSaveRef = React.useRef(null);
+  const cloudLoadRef = React.useRef(null);
 
   const setProgress = React.useCallback((value) => {
     const clamped = Math.max(0, Math.min(1, Number.isFinite(value) ? value : 0));
@@ -59,12 +67,32 @@ export function ProgressProvider({ children }) {
     setProgressState(0);
   }, []);
 
+  const syncToCloud = React.useCallback(() => {
+    if (cloudSaveRef.current) {
+      cloudSaveRef.current();
+    }
+  }, []);
+
+  const loadFromCloud = React.useCallback(async () => {
+    if (cloudLoadRef.current) {
+      const data = await cloudLoadRef.current();
+      if (data) {
+        if (typeof data.currentLevel === 'number') setCurrentLevelState(data.currentLevel);
+        if (typeof data.currentQuizIndex === 'number') setCurrentQuizIndexState(data.currentQuizIndex);
+        setCloudLoaded(true);
+        return data;
+      }
+    }
+    return null;
+  }, []);
+
   const value = React.useMemo(
     () => ({
       progress,
       currentLevel,
       currentQuizIndex,
       showCongrats,
+      cloudLoaded,
       setProgress,
       setCurrentLevel,
       setCurrentQuizIndex,
@@ -73,12 +101,17 @@ export function ProgressProvider({ children }) {
       retreat,
       resetProgress,
       reset,
+      syncToCloud,
+      loadFromCloud,
+      _cloudSaveRef: cloudSaveRef,
+      _cloudLoadRef: cloudLoadRef,
     }),
     [
       progress,
       currentLevel,
       currentQuizIndex,
       showCongrats,
+      cloudLoaded,
       setProgress,
       setCurrentLevel,
       setCurrentQuizIndex,
@@ -87,6 +120,8 @@ export function ProgressProvider({ children }) {
       retreat,
       resetProgress,
       reset,
+      syncToCloud,
+      loadFromCloud,
     ]
   );
 

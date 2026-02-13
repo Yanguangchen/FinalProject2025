@@ -4,6 +4,7 @@ import ButtonShort from '../UI/button-short';
 import ButtonLong from '../UI/button-long';
 import StatusCard from '../UI/status-card';
 import SignalIndicator from '../UI/signal-indicator';
+import AccountButton from '../UI/account-button';
 import { useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen() {
@@ -133,7 +134,10 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
-        <Text style={styles.sectionTitle}>CURRENT STATUS</Text>
+        <View style={styles.topRow}>
+          <Text style={styles.sectionTitle}>CURRENT STATUS</Text>
+          <AccountButton />
+        </View>
         <WeatherWidget />
         <Pressable accessibilityRole="button" onPress={() => navigation.navigate('OfficialUpdates')}>
           <StatusCard
@@ -185,6 +189,11 @@ const styles = StyleSheet.create({
     width: '100%',
     minHeight: 120,
     alignSelf: 'center',
+  },
+  topRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   row: {
     flexDirection: 'row',

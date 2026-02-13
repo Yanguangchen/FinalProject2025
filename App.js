@@ -19,6 +19,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ProgressProvider } from './context/ProgressContext';
 import { NetworkProvider } from './context/NetworkContext';
+import { AuthProvider } from './context/AuthContext';
+import { CloudSyncProvider } from './context/CloudSyncContext';
+import CloudSyncBridge from './context/CloudSyncBridge';
 import ConnectionBanner from './UI/connection-banner';
 import { Platform } from 'react-native';
 
@@ -84,7 +87,10 @@ export default function App() {
 
   return (
     <NetworkProvider>
-      <ProgressProvider>
+      <AuthProvider>
+        <ProgressProvider>
+          <CloudSyncProvider>
+            <CloudSyncBridge />
         {isNavReady ? (
         <NavigationContainer
           linking={linking}
@@ -117,7 +123,9 @@ export default function App() {
         </NavigationContainer>
         ) : null}
         <ConnectionBanner />
-      </ProgressProvider>
+          </CloudSyncProvider>
+        </ProgressProvider>
+      </AuthProvider>
     </NetworkProvider>
   );
 }
